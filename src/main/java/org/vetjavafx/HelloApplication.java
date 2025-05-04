@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Load the initial scene (Accueil)
-        FXMLLoader fxmlLoaderAccueil = new FXMLLoader(getClass().getResource("listerOwners.fxml"));
+        FXMLLoader fxmlLoaderAccueil = new FXMLLoader(getClass().getResource("acceuil.fxml"));
         AnchorPane rootAccueil = fxmlLoaderAccueil.load();
 
         Scene accueilScene = new Scene(rootAccueil);

@@ -22,7 +22,7 @@
       </ImageView>
 
       <!-- Buttons for navigation -->
-      <Button contentDisplay="TEXT_ONLY" layoutX="669.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP">
+      <Button fx:id="Ownerbutton" contentDisplay="TEXT_ONLY" layoutX="669.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP" onAction="#handleownerButtonClick">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>

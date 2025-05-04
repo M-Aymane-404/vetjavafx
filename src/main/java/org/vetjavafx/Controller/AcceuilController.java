@@ -13,6 +13,9 @@ public class AcceuilController {
 
     public Button vetbutton ;
     public Button vetsecondbutton ;
+    public Button Ownerbutton ;
+    public Button Ownersecondbutton ;
+
 
 
     // Event handler for the Veterinaires button
@@ -46,5 +49,29 @@ public class AcceuilController {
         stage.show();
 
         System.out.println("Veterinaires Button clicked");
+    }
+
+
+    @FXML
+    private void handleownerButtonClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        AnchorPane root = loader.load();
+        Scene scene = new Scene(root);
+
+        Stage stage = (Stage) Ownerbutton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+    @FXML
+    private void handleOwnersecondbuttonClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        AnchorPane root = loader.load();
+        Scene scene = new Scene(root);
+
+        Stage stage = (Stage) Ownersecondbutton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
     }
 }

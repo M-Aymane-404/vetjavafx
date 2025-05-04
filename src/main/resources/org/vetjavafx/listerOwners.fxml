@@ -25,12 +25,12 @@
                 <Font name="Lucida Sans Unicode" size="22.0" />
             </font>
         </Button>
-        <Button contentDisplay="TEXT_ONLY" layoutX="504.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: #e9eef3;" text="Vétérinaires" textOverrun="CLIP">
+        <Button fx:id="vetbutton" contentDisplay="TEXT_ONLY" layoutX="504.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: #e9eef3;" text="Vétérinaires" textOverrun="CLIP"  onAction="#handleVeterinairesButtonClick">
             <font>
                 <Font name="Lucida Sans Unicode" size="22.0" />
             </font>
         </Button>
-        <Button contentDisplay="TEXT_ONLY" layoutX="372.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #e9eef3;" text="Acceuil" textOverrun="CLIP">
+        <Button fx:id="accButton" contentDisplay="TEXT_ONLY" layoutX="372.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #e9eef3;" text="Acceuil" textOverrun="CLIP" onAction="#handleBackButtonClick">
             <font>
                 <Font name="Lucida Sans Unicode" size="22.0" />
             </font>
@@ -59,7 +59,7 @@
                 <Font name="Berlin Sans FB" size="27.0" />
             </font>
         </Label>
-        <Button fx:id="addOwnerButton" contentDisplay="TEXT_ONLY" layoutX="52.0" layoutY="623.0" mnemonicParsing="false"  prefHeight="40.0" prefWidth="150.0" text="Add Owner" />
+        <Button fx:id="addOwnerButton" contentDisplay="TEXT_ONLY" layoutX="52.0" layoutY="623.0" mnemonicParsing="false" onAction="#handleAddOwnerButtonClick" prefHeight="40.0" prefWidth="150.0" text="Add Owner" />
 
 
     </children>

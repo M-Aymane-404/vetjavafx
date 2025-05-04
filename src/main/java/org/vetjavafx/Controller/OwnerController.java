@@ -1,18 +1,21 @@
 package org.vetjavafx.Controller;
 
-import com.almasb.fxgl.scene.Scene;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.vetjavafx.model.Owner;
+
+import java.io.IOException;
 
 public class OwnerController {
 
@@ -82,6 +85,7 @@ public class OwnerController {
         // Set data to table
         ownerTable.setItems(ownerData);
 
+
         // Set up search filter
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             filterData(newValue);
@@ -104,6 +108,61 @@ public class OwnerController {
     private void showOwnerDetails(Owner owner) {
         System.out.println("Owner Details: " + owner.getFirstName() + " " + owner.getLastName());
         // Implement the navigation or other actions for the details
+    }
+    public Button addOwnerButton ;
+
+
+    // Event handler for the Veterinaires button
+    @FXML
+    private void handleAddOwnerButtonClick() throws IOException {
+        // Load the veterinarian scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/addOwner.fxml"));
+        AnchorPane root = loader.load();
+        javafx.scene.Scene scene = new Scene(root);
+
+        // Get the current stage (window) and set the new scene
+        Stage stage = (Stage) addOwnerButton.getScene().getWindow();
+        // accButton can be any button in the acceuil scene
+        stage.setScene(scene);
+        stage.show();
+
+    }
+    public Button accButton;
+    public Button vetbutton ;
+
+
+
+    @FXML
+
+    private void handleBackButtonClick() throws IOException {
+        // Load the accueil.fxml scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/acceuil.fxml"));
+        AnchorPane root = loader.load();
+        Scene scene = new Scene(root);
+
+        // Get the current stage (window) and set the new scene
+        Stage stage = (Stage) accButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+        // Optionally, you can print for debugging purposes
+        System.out.println("Back button clicked");
+    }
+
+    @FXML
+    private void handleVeterinairesButtonClick() throws IOException {
+        // Load the veterinarian scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listervet.fxml"));
+        AnchorPane root = loader.load();
+        Scene scene = new Scene(root);
+
+        // Get the current stage (window) and set the new scene
+        Stage stage = (Stage) vetbutton.getScene().getWindow();
+        // accButton can be any button in the acceuil scene
+        stage.setScene(scene);
+        stage.show();
+
+        System.out.println("Veterinaires Button clicked");
     }
 
     }

@@ -34,12 +34,12 @@
             <Font size="22.0" />
          </font>
       </Button>
-      <Button contentDisplay="TEXT_ONLY" layoutX="254.0" layoutY="434.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="200.0" style="-fx-background-color: #153446; -fx-border-color: #ffffff;" text="Propriétaires" textFill="WHITE" textOverrun="CLIP">
+      <Button fx:id="Ownerbutton"  contentDisplay="TEXT_ONLY" layoutX="254.0" layoutY="434.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="200.0" style="-fx-background-color: #153446; -fx-border-color: #ffffff;" text="Propriétaires" textFill="WHITE" textOverrun="CLIP" onAction="#handleownerButtonClick">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>
       </Button>
-      <Button  contentDisplay="TEXT_ONLY" layoutX="671.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP">
+      <Button  fx:id="Ownersecondbutton" contentDisplay="TEXT_ONLY" layoutX="671.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP" onAction="#handleOwnersecondbuttonClick">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>

@@ -20,6 +20,8 @@ import java.io.IOException;
 public class VeterinarianController {
 
     public Button accButton;
+    public Button Ownerbutton ;
+
     @FXML
     private TableView<Veterinarian> veterinarianTable;
     @FXML
@@ -35,7 +37,17 @@ public class VeterinarianController {
 
     private ObservableList<Veterinarian> veterinarianData = FXCollections.observableArrayList();
 
+    @FXML
+    private void handleownerButtonClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        AnchorPane root = loader.load();
+        Scene scene = new Scene(root);
 
+        Stage stage = (Stage) Ownerbutton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
     @FXML
 
     private void handleBackButtonClick() throws IOException {

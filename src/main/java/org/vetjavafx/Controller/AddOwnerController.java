@@ -1,10 +1,14 @@
 package org.vetjavafx.Controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import org.vetjavafx.model.Owner;
 import javafx.stage.Stage;
+import org.vetjavafx.model.Owner;
+
+import java.io.IOException;
 
 public class AddOwnerController {
 
@@ -21,14 +25,9 @@ public class AddOwnerController {
     @FXML
     private Button saveOwnerButton;
 
-    private Stage dialogStage;
-
-    public void setDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
 
     @FXML
-    private void handleSaveOwnerButtonClick() {
+    private void handleSaveOwnerButtonClick() throws IOException {
         // Get the owner details from the fields
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
@@ -39,10 +38,18 @@ public class AddOwnerController {
         // Create a new Owner object
         Owner newOwner = new Owner(firstName, lastName, address, city, phone);
 
-        // You can now add this owner to the list or database, or notify the main controller
+        // You can add this owner to the list or database, or notify the main controller
         System.out.println("Owner Added: " + newOwner.getFirstName() + " " + newOwner.getLastName());
 
-        // Close the dialog
-        dialogStage.close();
+        // Load the new scene (you can change this to your specific scene)
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        Scene newScene = new Scene(loader.load());
+
+        // Get the current stage and set the new scene
+        Stage currentStage = (Stage) saveOwnerButton.getScene().getWindow();
+        currentStage.setScene(newScene);
+
+        // Show the new scene
+        currentStage.show();
     }
 }
