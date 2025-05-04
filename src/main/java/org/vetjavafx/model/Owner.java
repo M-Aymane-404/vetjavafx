@@ -3,6 +3,7 @@ package org.vetjavafx.model;
 import java.util.ArrayList;
 
 public class Owner {
+
     private int id;
     private String firstName;
     private String lastName;
@@ -11,7 +12,6 @@ public class Owner {
     private int phone;
     private ArrayList<Pet> pets = new ArrayList<>();
 
-    // Constructor
     public Owner(String firstName, String lastName, String address, String city, int phone) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,9 +20,11 @@ public class Owner {
         this.phone = phone;
     }
 
-    public Owner() {}
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 
-    // Getters and Setters for all fields
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -45,10 +47,6 @@ public class Owner {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getFullName() {
-        return this.firstName + " " + this.lastName;  // Combine first and last name
     }
 
     public String getAddress() {

@@ -1,13 +1,16 @@
 package org.vetjavafx.Controller;
 
+import com.almasb.fxgl.scene.Scene;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.vetjavafx.model.Owner;
 
@@ -31,6 +34,7 @@ public class OwnerController {
     private ObservableList<Owner> ownerData = FXCollections.observableArrayList();
 
     public void initialize() {
+
         // Set up TableColumns
         nameColumn.setCellValueFactory(cellData -> {
             // Wrap the full name in SimpleStringProperty for TableColumn to work
@@ -95,9 +99,13 @@ public class OwnerController {
         ownerTable.setItems(filteredData);
     }
 
+
     // Method to show owner details
     private void showOwnerDetails(Owner owner) {
         System.out.println("Owner Details: " + owner.getFirstName() + " " + owner.getLastName());
         // Implement the navigation or other actions for the details
     }
-}
+
+    }
+
+
