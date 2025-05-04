@@ -12,9 +12,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import org.vetjavafx.HelloApplication;
 import org.vetjavafx.model.Veterinarian;
+import javafx.stage.Stage;
+
+
+import java.io.IOException;
 
 public class VeterinarianController {
 
+    public Button accButton;
     @FXML
     private TableView<Veterinarian> veterinarianTable;
     @FXML
@@ -30,7 +35,28 @@ public class VeterinarianController {
 
     private ObservableList<Veterinarian> veterinarianData = FXCollections.observableArrayList();
 
+
+    @FXML
+
+    private void handleBackButtonClick() throws IOException {
+        // Load the accueil.fxml scene
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/acceuil.fxml"));
+        AnchorPane root = loader.load();
+        Scene scene = new Scene(root);
+
+        // Get the current stage (window) and set the new scene
+        Stage stage = (Stage) accButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+        // Optionally, you can print for debugging purposes
+        System.out.println("Back button clicked");
+    }
+
+
     public void initialize() {
+
+
 
       // Table column binding
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
