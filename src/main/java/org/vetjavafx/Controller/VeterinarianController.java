@@ -72,16 +72,5 @@ public class VeterinarianController {
         veterinarianTable.setItems(veterinarianData);
     }
 
-    // Event handler for button click (optional)
-    @FXML
-    private void handleVeterinariansButtonClick() {
-        // Handle button click, e.g., navigate to another screen or perform other actions
-        System.out.println("Vétérinaires Button Clicked");
-    }
 
-    @FXML
-    private void handleOwnersButtonClick() {
-        // Handle button click for owners button
-        System.out.println("Propriétaires Button Clicked");
-    }
 }
