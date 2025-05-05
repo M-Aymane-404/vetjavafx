@@ -33,6 +33,10 @@ public class OwnerController {
     private TableColumn<Owner, Button> detailsColumn;
     @FXML
     private TextField searchField;  // Search bar
+    public Button accButton;
+    public Button vetbutton ;
+    public Button addOwnerButton ;
+
 
     private ObservableList<Owner> ownerData = FXCollections.observableArrayList();
 
@@ -109,7 +113,6 @@ public class OwnerController {
         System.out.println("Owner Details: " + owner.getFirstName() + " " + owner.getLastName());
         // Implement the navigation or other actions for the details
     }
-    public Button addOwnerButton ;
 
 
     // Event handler for the Veterinaires button
@@ -127,8 +130,7 @@ public class OwnerController {
         stage.show();
 
     }
-    public Button accButton;
-    public Button vetbutton ;
+
 
 
 
@@ -164,7 +166,27 @@ public class OwnerController {
 
         System.out.println("Veterinaires Button clicked");
     }
+    public void addOwnerToList(Owner newOwner) {
+        // Ajoute le nouveau propriétaire à la liste
+        ownerData.add(newOwner);
 
+        // Actualise le tableau pour afficher le nouveau propriétaire
+        ownerTable.setItems(ownerData);
+        ownerTable.refresh();  // Rafraîchit la TableView
     }
+
+
+
+
+
+    @FXML
+    private void handleRefreshButtonClick() {
+        // Rafraîchit la TableView en réaffichant les données
+        ownerTable.refresh();
+        System.out.println("Refresh button clicked");
+    }
+
+
+}
 
 
