@@ -25,15 +25,12 @@ public class DataManager {
     }
 
     public static List<Owner> loadOwners() {
-        // If we have cached data, return it
-        if (!ownersCache.isEmpty()) {
-            return new ArrayList<>(ownersCache);
-        }
-
+        // Always try to load from file first to ensure we have the latest data
         File file = new File(OWNERS_FILE);
         if (!file.exists()) {
             System.out.println("No owners file found, creating new list");
-            return new ArrayList<>();
+            ownersCache = new ArrayList<>();
+            return ownersCache;
         }
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(OWNERS_FILE))) {
@@ -43,12 +40,12 @@ public class DataManager {
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Error loading owners: " + e.getMessage());
             e.printStackTrace();
-            return new ArrayList<>();
+            return new ArrayList<>(ownersCache); // Return current cache if file read fails
         }
     }
 
     public static void updateOwner(Owner updatedOwner) {
-        List<Owner> owners = loadOwners();
+        List<Owner> owners = loadOwners(); // Always get fresh data
         boolean found = false;
         
         for (int i = 0; i < owners.size(); i++) {
@@ -77,7 +74,7 @@ public class DataManager {
     }
 
     public static void deleteOwner(Owner ownerToDelete) {
-        List<Owner> owners = loadOwners();
+        List<Owner> owners = loadOwners(); // Always get fresh data
         owners.removeIf(owner -> owner.getId() == ownerToDelete.getId());
         saveOwners(owners);
     }

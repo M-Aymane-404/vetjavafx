@@ -12,6 +12,7 @@ import org.vetjavafx.model.Owner;
 import org.vetjavafx.model.DataManager;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AddOwnerController {
 
@@ -49,8 +50,10 @@ public class AddOwnerController {
             // Create a new Owner object
             Owner newOwner = new Owner(firstName, lastName, address, city, phone);
 
-            // Save the owner using DataManager
-            DataManager.updateOwner(newOwner);
+            // Get current owners list and add the new owner
+            List<Owner> owners = DataManager.loadOwners();
+            owners.add(newOwner);
+            DataManager.saveOwners(owners);
 
             // Show success message
             Alert alert = new Alert(AlertType.INFORMATION);
