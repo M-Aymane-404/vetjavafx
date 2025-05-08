@@ -1,8 +1,15 @@
 package org.vetjavafx.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.IntegerProperty;
 
-public class Pet {
+public class Pet implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private String name;
     private String birthDate;
     private String type;
@@ -60,6 +67,23 @@ public class Pet {
 
     public void setVisites(ArrayList<Visite> visites) {
         this.visites = visites;
+    }
+
+    // Property methods for JavaFX binding
+    public StringProperty nameProperty() {
+        return new SimpleStringProperty(name);
+    }
+
+    public StringProperty typeProperty() {
+        return new SimpleStringProperty(type);
+    }
+
+    public StringProperty birthDateProperty() {
+        return new SimpleStringProperty(birthDate);
+    }
+
+    public IntegerProperty visitsCountProperty() {
+        return new SimpleIntegerProperty(visites.size());
     }
 
     @Override

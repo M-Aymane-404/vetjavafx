@@ -14,8 +14,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.vetjavafx.model.Owner;
+import org.vetjavafx.model.DataManager;
 
 import java.io.IOException;
+import java.util.List;
 
 public class OwnerController {
 
@@ -28,23 +30,25 @@ public class OwnerController {
     @FXML
     private TableColumn<Owner, String> cityColumn;
     @FXML
-    private TableColumn<Owner, Integer> phoneColumn;
+    private TableColumn<Owner, String> phoneColumn;
     @FXML
-    private TableColumn<Owner, Button> detailsColumn;
+    private TableColumn<Owner, Void> detailsColumn;
+    @FXML
+    private TableColumn<Owner, Void> deleteColumn;
     @FXML
     private TextField searchField;  // Search bar
-    public Button accButton;
-    public Button vetbutton ;
-    public Button addOwnerButton ;
 
+    public Button addOwnerButton;
 
     private ObservableList<Owner> ownerData = FXCollections.observableArrayList();
 
     public void initialize() {
+        // Load owners from file
+        List<Owner> savedOwners = DataManager.loadOwners();
+        ownerData.addAll(savedOwners);
 
         // Set up TableColumns
         nameColumn.setCellValueFactory(cellData -> {
-            // Wrap the full name in SimpleStringProperty for TableColumn to work
             return new javafx.beans.property.SimpleStringProperty(cellData.getValue().getFullName());
         });
         addressColumn.setCellValueFactory(cellData -> {
@@ -54,13 +58,13 @@ public class OwnerController {
             return new javafx.beans.property.SimpleStringProperty(cellData.getValue().getCity());
         });
         phoneColumn.setCellValueFactory(cellData -> {
-            return new javafx.beans.property.SimpleIntegerProperty(cellData.getValue().getPhone()).asObject();
+            return new javafx.beans.property.SimpleStringProperty(cellData.getValue().getPhone());
         });
 
         // Button for details in each row
         detailsColumn.setCellFactory(column -> {
-            return new TableCell<Owner, Button>() {
-                private final Button detailsButton = new Button("Details");
+            return new TableCell<Owner, Void>() {
+                private final Button detailsButton = new Button("Détails");
 
                 {
                     detailsButton.setOnAction(event -> {
@@ -70,10 +74,10 @@ public class OwnerController {
                 }
 
                 @Override
-                protected void updateItem(Button item, boolean empty) {
+                protected void updateItem(Void item, boolean empty) {
                     super.updateItem(item, empty);
                     if (empty) {
-                        setGraphic(null); // Don't show anything for empty rows
+                        setGraphic(null);
                     } else {
                         setGraphic(detailsButton);
                     }
@@ -81,14 +85,32 @@ public class OwnerController {
             };
         });
 
-        // Sample data
-        ownerData.add(new Owner("John", "Doe", "123 Main St", "City", 123456789));
-        ownerData.add(new Owner("Jane", "Smith", "456 Oak St", "Town", 987654321));
-        ownerData.add(new Owner("Michael", "Johnson", "789 Pine St", "Village", 555123456));
+        // Add delete button column
+        deleteColumn.setCellFactory(column -> {
+            return new TableCell<Owner, Void>() {
+                private final Button deleteButton = new Button("Supprimer");
+                {
+                    deleteButton.setStyle("-fx-background-color: #ff4444; -fx-text-fill: white;");
+                    deleteButton.setOnAction(event -> {
+                        Owner owner = getTableView().getItems().get(getIndex());
+                        deleteOwner(owner);
+                    });
+                }
+
+                @Override
+                protected void updateItem(Void item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(deleteButton);
+                    }
+                }
+            };
+        });
 
         // Set data to table
         ownerTable.setItems(ownerData);
-
 
         // Set up search filter
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -107,13 +129,27 @@ public class OwnerController {
         ownerTable.setItems(filteredData);
     }
 
-
     // Method to show owner details
     private void showOwnerDetails(Owner owner) {
-        System.out.println("Owner Details: " + owner.getFirstName() + " " + owner.getLastName());
-        // Implement the navigation or other actions for the details
-    }
+        try {
+            // Load the owner details scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/ownerDetails.fxml"));
+            AnchorPane root = loader.load();
+            Scene scene = new Scene(root);
 
+            // Get the controller and set the owner
+            OwnerDetailsController controller = loader.getController();
+            controller.setOwner(owner);
+
+            // Get the current stage and set the new scene
+            Stage stage = (Stage) ownerTable.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Error loading owner details: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     // Event handler for the Veterinaires button
     @FXML
@@ -125,17 +161,14 @@ public class OwnerController {
 
         // Get the current stage (window) and set the new scene
         Stage stage = (Stage) addOwnerButton.getScene().getWindow();
-        // accButton can be any button in the acceuil scene
         stage.setScene(scene);
         stage.show();
-
     }
 
-
-
+    public Button accButton;
+    public Button vetbutton;
 
     @FXML
-
     private void handleBackButtonClick() throws IOException {
         // Load the accueil.fxml scene
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/acceuil.fxml"));
@@ -146,9 +179,6 @@ public class OwnerController {
         Stage stage = (Stage) accButton.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-
-        // Optionally, you can print for debugging purposes
-        System.out.println("Back button clicked");
     }
 
     @FXML
@@ -160,33 +190,62 @@ public class OwnerController {
 
         // Get the current stage (window) and set the new scene
         Stage stage = (Stage) vetbutton.getScene().getWindow();
-        // accButton can be any button in the acceuil scene
         stage.setScene(scene);
         stage.show();
-
-        System.out.println("Veterinaires Button clicked");
     }
+
     public void addOwnerToList(Owner newOwner) {
-        // Ajoute le nouveau propriétaire à la liste
+        // Add the new owner to the list
         ownerData.add(newOwner);
 
-        // Actualise le tableau pour afficher le nouveau propriétaire
+        // Save all owners to file
+        DataManager.saveOwners(ownerData);
+
+        // Update the table
         ownerTable.setItems(ownerData);
-        ownerTable.refresh();  // Rafraîchit la TableView
+        ownerTable.refresh();
     }
-
-
-
-
 
     @FXML
     private void handleRefreshButtonClick() {
-        // Rafraîchit la TableView en réaffichant les données
+        // Refresh the TableView
         ownerTable.refresh();
-        System.out.println("Refresh button clicked");
     }
 
+    private void deleteOwner(Owner owner) {
+        // Show confirmation dialog
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation de suppression");
+        alert.setHeaderText("Supprimer le propriétaire");
+        alert.setContentText("Êtes-vous sûr de vouloir supprimer " + owner.getFullName() + " et tous ses animaux et visites ?");
 
+        if (alert.showAndWait().get() == javafx.scene.control.ButtonType.OK) {
+            try {
+                // Remove from the table
+                ownerData.remove(owner);
+                
+                // Remove from storage
+                DataManager.deleteOwner(owner);
+                
+                // Refresh the table
+                ownerTable.refresh();
+                
+                // Show success message
+                javafx.scene.control.Alert successAlert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Succès");
+                successAlert.setHeaderText("Propriétaire supprimé");
+                successAlert.setContentText("Le propriétaire et toutes les données associées ont été supprimés avec succès.");
+                successAlert.showAndWait();
+            } catch (Exception e) {
+                // Show error message
+                javafx.scene.control.Alert errorAlert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+                errorAlert.setTitle("Erreur");
+                errorAlert.setHeaderText("Échec de la suppression");
+                errorAlert.setContentText("Impossible de supprimer le propriétaire : " + e.getMessage());
+                errorAlert.showAndWait();
+            }
+        }
+    }
 }
 
 

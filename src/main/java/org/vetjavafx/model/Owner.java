@@ -1,18 +1,20 @@
 package org.vetjavafx.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Owner {
+public class Owner implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private int id;
     private String firstName;
     private String lastName;
     private String address;
     private String city;
-    private int phone;
+    private String phone;
     private ArrayList<Pet> pets = new ArrayList<>();
 
-    public Owner(String firstName, String lastName, String address, String city, int phone) {
+    public Owner(String firstName, String lastName, String address, String city, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -65,11 +67,11 @@ public class Owner {
         this.city = city;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

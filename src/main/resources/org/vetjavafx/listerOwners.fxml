@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="993.0" style="-fx-background-color: #e9eef3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.vetjavafx.Controller.OwnerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="776.0" prefWidth="1129.0" style="-fx-background-color: #e9eef3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.vetjavafx.Controller.OwnerController">
     <children>
         <!-- Logo Image -->
         <ImageView fitHeight="124.0" fitWidth="137.0" layoutX="22.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
@@ -20,47 +20,44 @@
         </ImageView>
 
         <!-- Buttons for navigation -->
-        <Button contentDisplay="TEXT_ONLY" layoutX="669.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP">
+        <Button contentDisplay="TEXT_ONLY" layoutX="845.0" layoutY="14.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP">
             <font>
                 <Font name="Lucida Sans Unicode" size="22.0" />
             </font>
         </Button>
-        <Button fx:id="vetbutton" contentDisplay="TEXT_ONLY" layoutX="504.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleVeterinairesButtonClick" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: #e9eef3;" text="Vétérinaires" textOverrun="CLIP">
+        <Button fx:id="vetbutton" contentDisplay="TEXT_ONLY" layoutX="663.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleVeterinairesButtonClick" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: #e9eef3;" text="Vétérinaires" textOverrun="CLIP">
             <font>
                 <Font name="Lucida Sans Unicode" size="22.0" />
             </font>
         </Button>
-        <Button fx:id="accButton" contentDisplay="TEXT_ONLY" layoutX="372.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBackButtonClick" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #e9eef3;" text="Acceuil" textOverrun="CLIP">
+        <Button fx:id="accButton" contentDisplay="TEXT_ONLY" layoutX="525.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButtonClick" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #e9eef3;" text="Acceuil" textOverrun="CLIP">
             <font>
                 <Font name="Lucida Sans Unicode" size="22.0" />
             </font>
         </Button>
 
         <!-- Search Bar -->
-        <TextField fx:id="searchField" layoutX="255.0" layoutY="238.0" prefHeight="26.0" prefWidth="549.0" promptText="      enter le nom de propriétaires" style="-fx-background-radius: 50; -fx-background-color: white;" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="238.0" />
+        <TextField fx:id="searchField" layoutX="252.0" layoutY="227.2" prefHeight="43.0" prefWidth="460.0" promptText="      enter le nom de propriétaires" style="-fx-background-color: white;" AnchorPane.leftAnchor="252.0" AnchorPane.topAnchor="227.0" />
 
         <!-- TableView -->
-        <TableView fx:id="ownerTable" layoutX="52.0" layoutY="279.0" prefHeight="320.0" prefWidth="904.0">
+        <TableView fx:id="ownerTable" layoutX="252.0" layoutY="282.0" prefHeight="320.0" prefWidth="650.0">
             <columns>
-                <TableColumn fx:id="nameColumn" prefWidth="218.4000244140625" text="Full Name" />
-                <TableColumn fx:id="addressColumn" prefWidth="193.5999755859375" text="Address" />
-                <TableColumn fx:id="cityColumn" prefWidth="124.79998779296875" text="City" />
-                <TableColumn fx:id="phoneColumn" prefWidth="188.79998779296875" text="Phone" />
-                <TableColumn fx:id="detailsColumn" prefWidth="151.9998779296875" text="Details" />
+                <TableColumn fx:id="nameColumn" prefWidth="120.0" text="Nom complet" />
+                <TableColumn fx:id="addressColumn" prefWidth="150.0" text="Adresse" />
+                <TableColumn fx:id="cityColumn" prefWidth="100.0" text="Ville" />
+                <TableColumn fx:id="phoneColumn" prefWidth="120.0" text="Téléphone" />
+                <TableColumn fx:id="detailsColumn" prefWidth="76.79998779296875" text="Détails" />
+                <TableColumn fx:id="deleteColumn" prefWidth="86.4000244140625" text="Supprimer" />
             </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
         </TableView>
 
         <!-- Label for Search -->
-        <Label layoutX="335.0" layoutY="173.0" prefHeight="31.0" prefWidth="323.0" text="Rechercher des propriétaires">
+        <Label layoutX="319.0" layoutY="150.0" prefHeight="43.0" prefWidth="526.0" text="Rechercher des propriétaires">
             <font>
-                <Font name="Berlin Sans FB" size="27.0" />
+                <Font name="Berlin Sans FB" size="39.0" />
             </font>
         </Label>
-        <Button fx:id="addOwnerButton" contentDisplay="TEXT_ONLY" layoutX="52.0" layoutY="623.0" mnemonicParsing="false" onAction="#handleAddOwnerButtonClick" prefHeight="40.0" prefWidth="150.0" text="Add Owner" />
-        <Button fx:id="refreshButton" layoutX="896.0" layoutY="236.0" onAction="#handleRefreshButtonClick" text="Refresh" />
+        <Button fx:id="addOwnerButton" contentDisplay="TEXT_ONLY" layoutX="741.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleAddOwnerButtonClick" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: #1f8fe8; -fx-border-radius: 50;" text="Add Owner" />
 
 
     </children>

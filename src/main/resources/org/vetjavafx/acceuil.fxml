@@ -7,50 +7,50 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="993.0" style="-fx-background-color: #e9eef3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.vetjavafx.Controller.AcceuilController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="776.0" prefWidth="1129.0" style="-fx-background-color: #e9eef3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.vetjavafx.Controller.AcceuilController">
    <children>
-      <ImageView fitHeight="124.0" fitWidth="137.0" layoutX="22.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="124.0" fitWidth="137.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="474.0" fitWidth="724.0" layoutX="254.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="526.0" fitWidth="845.0" layoutX="319.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@animaux.png" />
          </image>
       </ImageView>
-      <Label layoutX="55.0" layoutY="276.0" prefHeight="90.0" prefWidth="463.0" text="clinique vétérinaire">
+      <Label layoutX="68.0" layoutY="321.0" prefHeight="90.0" prefWidth="526.0" text="clinique vétérinaire">
          <font>
-            <Font name="Franklin Gothic Demi Cond" size="53.0" />
+            <Font name="Franklin Gothic Demi Cond" size="66.0" />
          </font>
       </Label>
-      <Label layoutX="104.0" layoutY="185.0" prefHeight="90.0" prefWidth="463.0" text="Gestion de la">
+      <Label layoutX="146.0" layoutY="218.0" prefHeight="102.0" prefWidth="496.0" text="Gestion de la">
          <font>
-            <Font name="Franklin Gothic Demi Cond" size="53.0" />
+            <Font name="Franklin Gothic Demi Cond" size="66.0" />
          </font>
       </Label>
-      <Button fx:id="vetsecondbutton"  contentDisplay="TEXT_ONLY" layoutX="48.0" layoutY="434.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="186.0" style="-fx-background-color: #fcfeff; -fx-border-color: #153446;" text="Vétérinaires" textFill="#153446" textOverrun="CLIP" onAction="#handlesecondVeterinairesButtonClick">
+      <Button fx:id="vetsecondbutton" contentDisplay="TEXT_ONLY" layoutX="119.0" layoutY="475.0" mnemonicParsing="false" onAction="#handlesecondVeterinairesButtonClick" prefHeight="58.0" prefWidth="186.0" style="-fx-background-color: #fcfeff; -fx-border-color: #153446;" text="Vétérinaires" textFill="#153446" textOverrun="CLIP">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button fx:id="Ownerbutton"  contentDisplay="TEXT_ONLY" layoutX="254.0" layoutY="434.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="200.0" style="-fx-background-color: #153446; -fx-border-color: #ffffff;" text="Propriétaires" textFill="WHITE" textOverrun="CLIP" onAction="#handleownerButtonClick">
+      <Button fx:id="Ownerbutton" contentDisplay="TEXT_ONLY" layoutX="349.0" layoutY="475.0" mnemonicParsing="false" onAction="#handleownerButtonClick" prefHeight="58.0" prefWidth="200.0" style="-fx-background-color: #153446; -fx-border-color: #ffffff;" text="Propriétaires" textFill="WHITE" textOverrun="CLIP">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>
       </Button>
-      <Button  fx:id="Ownersecondbutton" contentDisplay="TEXT_ONLY" layoutX="671.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP" onAction="#handleOwnersecondbuttonClick">
+      <Button fx:id="Ownersecondbutton" contentDisplay="TEXT_ONLY" layoutX="877.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleOwnersecondbuttonClick" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="vetbutton"  contentDisplay="TEXT_ONLY" layoutX="504.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: #e9eef3;" text="Vétérinaires" textOverrun="CLIP" onAction="#handleVeterinairesButtonClick">
+      <Button fx:id="vetbutton" contentDisplay="TEXT_ONLY" layoutX="713.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleVeterinairesButtonClick" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: #e9eef3;" text="Vétérinaires" textOverrun="CLIP">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>
       </Button>
 
-      <Button contentDisplay="TEXT_ONLY" layoutX="376.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="117.0" style="-fx-background-color: #e9eef3;" text="Acceuil" textOverrun="CLIP">
+      <Button contentDisplay="TEXT_ONLY" layoutX="595.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="117.0" style="-fx-background-color: #e9eef3;" text="Acceuil" textOverrun="CLIP">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>

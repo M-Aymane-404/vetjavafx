@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import org.vetjavafx.model.Owner;
+import org.vetjavafx.model.DataManager;
 
 import java.io.IOException;
 
@@ -24,44 +27,63 @@ public class AddOwnerController {
     private TextField phoneField;
     @FXML
     private Button saveOwnerButton;
+    @FXML
+    private Button backButton;
 
-    // When the save button is clicked
     @FXML
     private void handleSaveOwnerButtonClick() {
         try {
+            // Validate fields
+            if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty()) {
+                showError("Erreur", "Le nom et le prénom sont obligatoires");
+                return;
+            }
+
             // Get the owner details from the fields
             String firstName = firstNameField.getText();
             String lastName = lastNameField.getText();
             String address = addressField.getText();
             String city = cityField.getText();
-            int phone = Integer.parseInt(phoneField.getText());
+            String phone = phoneField.getText();
 
             // Create a new Owner object
             Owner newOwner = new Owner(firstName, lastName, address, city, phone);
 
-            // You can add this owner to a list or database here
-            System.out.println("Owner Added: " + newOwner.getFirstName() + " " + newOwner.getLastName());
+            // Save the owner using DataManager
+            DataManager.updateOwner(newOwner);
 
+            // Show success message
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Succès");
+            alert.setHeaderText(null);
+            alert.setContentText("Le propriétaire a été ajouté avec succès.");
+            alert.showAndWait();
 
-
-
-            // Load the new scene (after saving the new owner)
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
-            Scene newScene = new Scene(loader.load());
-            // Une fois que le propriétaire est ajouté dans AddOwnerController
-            OwnerController ownerController = loader.getController();
-            ownerController.addOwnerToList(newOwner);
-
-            // Get the current stage and set the new scene
-            Stage currentStage = (Stage) saveOwnerButton.getScene().getWindow();
-            currentStage.setScene(newScene);
-
-            // Show the new scene
-            currentStage.show();
-        } catch (IOException | NumberFormatException e) {
-            // Show an error message or log the issue
-            System.err.println("Error while saving the owner: " + e.getMessage());
-            e.printStackTrace();  // Print the stack trace for debugging
+            // Navigate back to the owners list
+            navigateToOwnersList();
+        } catch (Exception e) {
+            showError("Erreur", "Une erreur s'est produite lors de l'ajout du propriétaire: " + e.getMessage());
         }
+    }
+
+    @FXML
+    private void handleBackButtonClick() throws IOException {
+        navigateToOwnersList();
+    }
+
+    private void navigateToOwnersList() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        Scene newScene = new Scene(loader.load());
+        Stage currentStage = (Stage) saveOwnerButton.getScene().getWindow();
+        currentStage.setScene(newScene);
+        currentStage.show();
+    }
+
+    private void showError(String title, String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

@@ -56,10 +56,12 @@ public class AcceuilController {
     private void handleownerButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
         AnchorPane root = loader.load();
-        Scene scene = new Scene(root);
+        Scene scene1 = new Scene(root);
 
+        // Get the current stage (window) and set the new scene
         Stage stage = (Stage) Ownerbutton.getScene().getWindow();
-        stage.setScene(scene);
+        // accButton can be any button in the acceuil scene
+        stage.setScene(scene1);
         stage.show();
 
     }
@@ -67,10 +69,12 @@ public class AcceuilController {
     private void handleOwnersecondbuttonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
         AnchorPane root = loader.load();
-        Scene scene = new Scene(root);
+        Scene scene1 = new Scene(root);
 
+        // Get the current stage (window) and set the new scene
         Stage stage = (Stage) Ownersecondbutton.getScene().getWindow();
-        stage.setScene(scene);
+        // accButton can be any button in the acceuil scene
+        stage.setScene(scene1);
         stage.show();
 
     }

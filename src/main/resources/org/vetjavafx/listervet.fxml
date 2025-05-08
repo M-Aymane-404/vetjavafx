@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="993.0" style="-fx-background-color: #e9eef3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.vetjavafx.Controller.VeterinarianController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="776.0" prefWidth="1129.0" style="-fx-background-color: #e9eef3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.vetjavafx.Controller.VeterinarianController">
 
 
 
@@ -22,22 +22,25 @@
       </ImageView>
 
       <!-- Buttons for navigation -->
-      <Button fx:id="Ownerbutton" contentDisplay="TEXT_ONLY" layoutX="669.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP" onAction="#handleownerButtonClick">
+      <Button fx:id="Ownerbutton" contentDisplay="TEXT_ONLY" layoutX="857.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleownerButtonClick" prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: #e9eef3;" text="Propriétaires" textOverrun="CLIP">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>
       </Button>
-      <Button contentDisplay="TEXT_ONLY" layoutX="504.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: #e9eef3;" text="Vétérinaires" textOverrun="CLIP" >
+      <Button contentDisplay="TEXT_ONLY" layoutX="699.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: #e9eef3;" text="Vétérinaires" textOverrun="CLIP">
          <font>
             <Font name="Lucida Sans Unicode" size="22.0" />
          </font>
       </Button>
 
         <!-- Title for Veterinarian List -->
-        <Label layoutX="84.0" layoutY="143.0" style="-fx-font-size: 30px; padding-top: 20px;" text="Liste des vétérinaires" />
+        <Label layoutX="84.0" layoutY="159.0" style="-fx-font-size: 30px; padding-top: 20px;" text="Liste des vétérinaires">
+         <font>
+            <Font name="Berlin Sans FB" size="39.0" />
+         </font></Label>
 
         <!-- TableView for Veterinarians -->
-        <TableView fx:id="veterinarianTable" layoutX="222.0" layoutY="219.0" prefHeight="264.0" prefWidth="564.0">
+        <TableView fx:id="veterinarianTable" layoutX="186.0" layoutY="229.0" prefHeight="268.0" prefWidth="622.0">
             <columns>
                 <TableColumn fx:id="nameColumn" text="Nom" />
                 <TableColumn fx:id="specializationColumn" text="Spécialité" />
@@ -46,7 +49,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
         </TableView>
-        <Button fx:id="accButton" contentDisplay="TEXT_ONLY" layoutX="372.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #e9eef3;" text="Acceuil" textOverrun="CLIP" onAction="#handleBackButtonClick">
+        <Button fx:id="accButton" contentDisplay="TEXT_ONLY" layoutX="584.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleBackButtonClick" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #e9eef3;" text="Acceuil" textOverrun="CLIP">
             <font>
                 <Font name="Lucida Sans Unicode" size="22.0" />
             </font>
