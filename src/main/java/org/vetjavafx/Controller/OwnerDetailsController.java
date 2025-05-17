@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.vetjavafx.model.Owner;
 import org.vetjavafx.model.Pet;
-import org.vetjavafx.model.DataManager;
 
 import java.io.IOException;
 
@@ -118,7 +117,7 @@ public class OwnerDetailsController {
 
     private void navigateToPetVisits(Pet pet) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/petVisits.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/petVisits.fxml"));
             AnchorPane root = loader.load();
             PetVisitsController controller = loader.getController();
             controller.setOwnerAndPet(owner, pet);
@@ -133,7 +132,7 @@ public class OwnerDetailsController {
 
     @FXML
     private void handleBackButtonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/listerOwners.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) backButton.getScene().getWindow();
@@ -143,7 +142,7 @@ public class OwnerDetailsController {
 
     @FXML
     private void handleAddPetButtonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/addPet.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/addPet.fxml"));
         AnchorPane root = loader.load();
         AddPetController controller = loader.getController();
         controller.setOwner(owner);
@@ -156,7 +155,7 @@ public class OwnerDetailsController {
 
     @FXML
     private void handleModifyOwnerButtonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/modifyOwner.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/modifyOwner.fxml"));
         AnchorPane root = loader.load();
         ModifyOwnerController controller = loader.getController();
         controller.setOwner(owner);
@@ -169,7 +168,7 @@ public class OwnerDetailsController {
 
     private void navigateToModifyPet(Pet pet) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/modifyPet.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/modifyPet.fxml"));
             AnchorPane root = loader.load();
             ModifyPetController controller = loader.getController();
             controller.setOwnerAndPet(owner, pet);
@@ -184,7 +183,7 @@ public class OwnerDetailsController {
 
     private void navigateToAddVisit(Pet pet) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/addVisit.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/addVisit.fxml"));
             AnchorPane root = loader.load();
             AddVisitController controller = loader.getController();
             controller.setOwnerAndPet(owner, pet);

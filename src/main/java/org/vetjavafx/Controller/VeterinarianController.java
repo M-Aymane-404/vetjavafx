@@ -9,8 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import org.vetjavafx.HelloApplication;
 import org.vetjavafx.model.Veterinarian;
 import javafx.stage.Stage;
 
@@ -39,7 +37,7 @@ public class VeterinarianController {
 
     @FXML
     private void handleownerButtonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/listerOwners.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
 
@@ -52,7 +50,7 @@ public class VeterinarianController {
 
     private void handleBackButtonClick() throws IOException {
         // Load the accueil.fxml scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/acceuil.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/acceuil.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
 

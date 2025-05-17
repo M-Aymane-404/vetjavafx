@@ -12,7 +12,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import org.vetjavafx.model.Owner;
 import org.vetjavafx.model.DataManager;
 
@@ -133,7 +132,7 @@ public class OwnerController {
     private void showOwnerDetails(Owner owner) {
         try {
             // Load the owner details scene
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/ownerDetails.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/ownerDetails.fxml"));
             AnchorPane root = loader.load();
             Scene scene = new Scene(root);
 
@@ -155,7 +154,7 @@ public class OwnerController {
     @FXML
     private void handleAddOwnerButtonClick() throws IOException {
         // Load the veterinarian scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/addOwner.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/addOwner.fxml"));
         AnchorPane root = loader.load();
         javafx.scene.Scene scene = new Scene(root);
 
@@ -171,7 +170,7 @@ public class OwnerController {
     @FXML
     private void handleBackButtonClick() throws IOException {
         // Load the accueil.fxml scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/acceuil.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/acceuil.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
 
@@ -184,7 +183,7 @@ public class OwnerController {
     @FXML
     private void handleVeterinairesButtonClick() throws IOException {
         // Load the veterinarian scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listervet.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/listervet.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
 

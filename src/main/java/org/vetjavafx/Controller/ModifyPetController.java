@@ -59,7 +59,7 @@ public class ModifyPetController {
     @FXML
     private void handleAddVisitButtonClick() throws IOException {
         // Load the add visit scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/addVisit.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/addVisit.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
 
@@ -80,7 +80,7 @@ public class ModifyPetController {
 
     private void navigateToOwnerDetails() throws IOException {
         // Load the owner details scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/ownerDetails.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/ownerDetails.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
 

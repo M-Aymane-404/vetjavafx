@@ -16,7 +16,6 @@ import org.vetjavafx.model.Visite;
 import org.vetjavafx.model.DataManager;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class AddVisitController {
@@ -87,7 +86,7 @@ public class AddVisitController {
     }
 
     private void navigateToOwnerDetails() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/ownerDetails.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/ownerDetails.fxml"));
         AnchorPane root = loader.load();
         OwnerDetailsController controller = loader.getController();
         controller.setOwner(owner);

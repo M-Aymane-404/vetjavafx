@@ -11,12 +11,12 @@
    <children>
       <ImageView fitHeight="124.0" fitWidth="137.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@logo.png" />
+            <Image url="@/logo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="526.0" fitWidth="845.0" layoutX="319.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@animaux.png" />
+            <Image url="@/animaux.png" />
          </image>
       </ImageView>
       <Label layoutX="68.0" layoutY="321.0" prefHeight="90.0" prefWidth="526.0" text="clinique vétérinaire">

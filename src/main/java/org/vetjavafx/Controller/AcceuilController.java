@@ -22,7 +22,7 @@ public class AcceuilController {
     @FXML
     private void handleVeterinairesButtonClick() throws IOException {
         // Load the veterinarian scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listervet.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/listervet.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
 
@@ -38,7 +38,7 @@ public class AcceuilController {
 
     private void handlesecondVeterinairesButtonClick() throws IOException {
         // Load the veterinarian scene
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listervet.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/listervet.fxml"));
         AnchorPane root = loader.load();
         Scene scene1 = new Scene(root);
 
@@ -54,7 +54,7 @@ public class AcceuilController {
 
     @FXML
     private void handleownerButtonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/listerOwners.fxml"));
         AnchorPane root = loader.load();
         Scene scene1 = new Scene(root);
 
@@ -67,7 +67,7 @@ public class AcceuilController {
     }
     @FXML
     private void handleOwnersecondbuttonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/listerOwners.fxml"));
         AnchorPane root = loader.load();
         Scene scene1 = new Scene(root);
 

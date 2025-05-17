@@ -16,7 +16,6 @@ import org.vetjavafx.model.Pet;
 import org.vetjavafx.model.DataManager;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
@@ -103,7 +102,7 @@ public class AddPetController {
     }
 
     private void navigateToOwnerDetails() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/ownerDetails.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/ownerDetails.fxml"));
         AnchorPane root = loader.load();
         OwnerDetailsController controller = loader.getController();
         controller.setOwner(owner);

@@ -75,7 +75,7 @@ public class AddOwnerController {
     }
 
     private void navigateToOwnersList() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/listerOwners.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/listerOwners.fxml"));
         Scene newScene = new Scene(loader.load());
         Stage currentStage = (Stage) saveOwnerButton.getScene().getWindow();
         currentStage.setScene(newScene);

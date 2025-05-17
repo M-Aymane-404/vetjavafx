@@ -10,10 +10,9 @@ public class DataManager {
 
     public static void saveOwners(List<Owner> owners) {
         try {
-            // Update the cache
             ownersCache = new ArrayList<>(owners);
             
-            // Save to file
+
             try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(OWNERS_FILE))) {
                 oos.writeObject(ownersCache);
                 System.out.println("Owners saved successfully: " + ownersCache.size() + " owners");
@@ -25,7 +24,6 @@ public class DataManager {
     }
 
     public static List<Owner> loadOwners() {
-        // Always try to load from file first to ensure we have the latest data
         File file = new File(OWNERS_FILE);
         if (!file.exists()) {
             System.out.println("No owners file found, creating new list");

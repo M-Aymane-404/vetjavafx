@@ -53,7 +53,7 @@ public class PetVisitsController {
 
     @FXML
     private void handleBackButtonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/ownerDetails.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/ownerDetails.fxml"));
         AnchorPane root = loader.load();
         OwnerDetailsController controller = loader.getController();
         controller.setOwner(owner);
