@@ -36,7 +36,8 @@
         <TableView fx:id="visitsTable" layoutX="109.0" layoutY="279.0" prefHeight="342.0" prefWidth="775.0">
             <columns>
                 <TableColumn fx:id="dateColumn" prefWidth="200.0" text="Date" />
-                <TableColumn fx:id="descriptionColumn" prefWidth="647.0" text="Description" />
+                <TableColumn fx:id="veterinarianColumn" prefWidth="200.0" text="Vétérinaire" />
+                <TableColumn fx:id="descriptionColumn" prefWidth="375.0" text="Description" />
             </columns>
         </TableView>
     </children>

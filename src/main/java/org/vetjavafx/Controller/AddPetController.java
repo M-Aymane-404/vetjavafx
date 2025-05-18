@@ -35,7 +35,7 @@ public class AddPetController {
 
     private Owner owner;
     private static final List<String> PET_TYPES = Arrays.asList(
-        "Chien", "Chat", "Oiseau", "Rongeur", "Reptile", "Autre"
+        "Chien", "Chat", "Oiseau", "Rongeur", "Reptile"
     );
 
     @FXML

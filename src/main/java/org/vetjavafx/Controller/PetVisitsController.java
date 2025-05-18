@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import org.vetjavafx.model.Owner;
 import org.vetjavafx.model.Pet;
 import org.vetjavafx.model.Visite;
+import org.vetjavafx.model.Veterinarian;
 
 import java.io.IOException;
 
@@ -24,6 +25,8 @@ public class PetVisitsController {
     private TableColumn<Visite, String> dateColumn;
     @FXML
     private TableColumn<Visite, String> descriptionColumn;
+    @FXML
+    private TableColumn<Visite, String> veterinarianColumn;
     @FXML
     private Button backButton;
 
@@ -44,6 +47,12 @@ public class PetVisitsController {
         // Set up table columns
         dateColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
         descriptionColumn.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
+        veterinarianColumn.setCellValueFactory(cellData -> {
+            Veterinarian vet = cellData.getValue().getVeterinarian();
+            return new javafx.beans.property.SimpleStringProperty(
+                vet != null ? vet.getName() + " (" + vet.getSpecialization() + ")" : ""
+            );
+        });
 
         // Load visits data
         visitsData.clear();

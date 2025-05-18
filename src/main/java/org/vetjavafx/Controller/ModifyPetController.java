@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.vetjavafx.model.Owner;
@@ -12,12 +13,14 @@ import org.vetjavafx.model.Pet;
 import org.vetjavafx.model.DataManager;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class ModifyPetController {
     @FXML
     private TextField nameField;
     @FXML
-    private TextField typeField;
+    private ComboBox<String> typeComboBox;
     @FXML
     private TextField birthDateField;
     @FXML
@@ -30,6 +33,16 @@ public class ModifyPetController {
     private Owner owner;
     private Pet pet;
 
+    private static final List<String> PET_TYPES = Arrays.asList(
+        "Chien", "Chat", "Oiseau", "Rongeur", "Reptile"
+    );
+
+    @FXML
+    public void initialize() {
+        // Initialize the pet types ComboBox
+        typeComboBox.getItems().addAll(PET_TYPES);
+    }
+
     public void setOwnerAndPet(Owner owner, Pet pet) {
         this.owner = owner;
         this.pet = pet;
@@ -38,7 +51,7 @@ public class ModifyPetController {
 
     private void updateFields() {
         nameField.setText(pet.getName());
-        typeField.setText(pet.getType());
+        typeComboBox.setValue(pet.getType());
         birthDateField.setText(pet.getBirthDate());
     }
 
@@ -46,7 +59,7 @@ public class ModifyPetController {
     private void handleSaveButtonClick() throws IOException {
         // Update pet information
         pet.setName(nameField.getText());
-        pet.setType(typeField.getText());
+        pet.setType(typeComboBox.getValue());
         pet.setBirthDate(birthDateField.getText());
 
         // Save the changes
