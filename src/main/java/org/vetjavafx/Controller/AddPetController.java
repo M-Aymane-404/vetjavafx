@@ -20,8 +20,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Ajout animal
+ */
 public class AddPetController {
 
+    // Composants de l'interface utilisateur
     @FXML
     private TextField nameField;
     @FXML
@@ -33,28 +39,43 @@ public class AddPetController {
     @FXML
     private Button backButton;
 
+    // Données
     private Owner owner;
+    
+    // Liste prédéfinie des types d'animaux pour la ComboBox
     private static final List<String> PET_TYPES = Arrays.asList(
         "Chien", "Chat", "Oiseau", "Rongeur", "Reptile"
     );
 
+    /**
+     * Initialise les composants du formulaire
+     * Configure la liste déroulante des types d'animaux et le sélecteur de date
+     */
     @FXML
     public void initialize() {
-        // Initialize the pet types ComboBox
+        // Remplit la liste déroulante des types d'animaux
         typeComboBox.getItems().addAll(PET_TYPES);
         
-        // Set French locale for the DatePicker
+        // Configure le sélecteur de date au format français
         birthDatePicker.setPromptText("JJ/MM/AAAA");
     }
 
+    /**
+     * Définit le propriétaire pour le nouvel animal
+     * @param owner Le propriétaire à associer au nouvel animal
+     */
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
 
+    /**
+     * Gère le clic sur le bouton de sauvegarde
+     * Valide les entrées et crée un nouvel animal
+     */
     @FXML
     private void handleSaveButtonClick() {
         try {
-            // Validate inputs
+            // Valide tous les champs requis
             if (nameField.getText().isEmpty()) {
                 throw new IllegalArgumentException("Le nom de l'animal est requis");
             }
@@ -65,29 +86,30 @@ public class AddPetController {
                 throw new IllegalArgumentException("La date de naissance est requise");
             }
 
-            // Format the date
+            // Formate la date au format français
             String formattedDate = birthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-            // Create new pet
+            // Crée le nouvel objet animal
             Pet newPet = new Pet(
                 nameField.getText(),
                 formattedDate,
                 typeComboBox.getValue()
             );
 
-            // Add pet to owner using the new method
+            // Enregistre l'animal dans le dossier du propriétaire
             DataManager.addPetToOwner(owner, newPet);
 
-            // Show success message
+            // Affiche le message de succès
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Succès");
             alert.setHeaderText(null);
             alert.setContentText("L'animal a été ajouté avec succès.");
             alert.showAndWait();
 
-            // Navigate back to owner details
+            // Retourne à l'écran des détails du propriétaire
             navigateToOwnerDetails();
         } catch (Exception e) {
+            // Affiche un message d'erreur en cas de problème
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erreur");
             alert.setHeaderText(null);
@@ -96,11 +118,18 @@ public class AddPetController {
         }
     }
 
+    /**
+     * Gère le clic sur le bouton retour
+     * Retourne à l'écran des détails du propriétaire
+     */
     @FXML
     private void handleBackButtonClick() throws IOException {
         navigateToOwnerDetails();
     }
 
+    /**
+     * Navigue vers l'écran des détails du propriétaire
+     */
     private void navigateToOwnerDetails() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/vetjavafx/view/ownerDetails.fxml"));
         AnchorPane root = loader.load();

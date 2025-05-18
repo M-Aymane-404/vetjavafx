@@ -1,3 +1,8 @@
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Détails propriétaire
+ */
 package org.vetjavafx.Controller;
 
 import javafx.collections.FXCollections;

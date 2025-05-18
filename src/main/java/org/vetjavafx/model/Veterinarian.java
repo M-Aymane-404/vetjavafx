@@ -1,3 +1,8 @@
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Classe vétérinaire
+ */
 package org.vetjavafx.model;
 
 import javafx.beans.property.SimpleStringProperty;

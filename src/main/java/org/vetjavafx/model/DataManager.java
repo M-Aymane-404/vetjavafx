@@ -1,3 +1,8 @@
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Gestion des données
+ */
 package org.vetjavafx.model;
 
 import java.io.*;

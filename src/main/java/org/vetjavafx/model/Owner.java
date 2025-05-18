@@ -1,3 +1,8 @@
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Classe propriétaire
+ */
 package org.vetjavafx.model;
 
 import java.io.Serializable;

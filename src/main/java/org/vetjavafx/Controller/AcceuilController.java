@@ -1,3 +1,8 @@
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Menu principal
+ */
 package org.vetjavafx.Controller;
 
 import javafx.fxml.FXML;

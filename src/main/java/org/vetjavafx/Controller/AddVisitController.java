@@ -1,3 +1,8 @@
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Ajout visite
+ */
 package org.vetjavafx.Controller;
 
 import javafx.fxml.FXML;
@@ -92,7 +97,7 @@ public class AddVisitController {
                 descriptionField.getText(),
                 veterinarianComboBox.getValue()
             );
-
+            
             // Add visit to pet
             DataManager.addVisitToPet(owner, pet, newVisit);
 

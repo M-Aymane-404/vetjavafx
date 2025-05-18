@@ -14,6 +14,11 @@ import org.vetjavafx.model.DataManager;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Ajout propriétaire
+ */
 public class AddOwnerController {
 
     @FXML

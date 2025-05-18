@@ -7,6 +7,11 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
+/**
+ * Fait par: [Votre Nom]
+ * Date: [Date Actuelle]
+ * Description: Classe visite
+ */
 public class Visite implements Serializable {
     private static final long serialVersionUID = 1L;
 
