@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="993.0" style="-fx-background-color: #e9eef3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.vetjavafx.Controller.PetVisitsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="776.0" prefWidth="1129.0" style="-fx-background-color: #e9eef3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.vetjavafx.Controller.PetVisitsController">
     <children>
         <!-- Logo Image -->
         <ImageView fitHeight="124.0" fitWidth="137.0" layoutX="22.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
